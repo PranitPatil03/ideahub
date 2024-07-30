@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import { env } from "../env";
+import { GlobalProviders } from "../providers/GlobalProviders";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -68,6 +69,7 @@ export default function RootLayout({
       <body
         className={`h-full ${inter.variable} ${calFont.variable} font-sans antialiased`}
       >
+        <GlobalProviders>{children}</GlobalProviders>
         {children}
       </body>
     </html>
