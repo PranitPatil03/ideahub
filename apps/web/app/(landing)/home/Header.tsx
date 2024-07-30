@@ -1,32 +1,29 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
-import Link from "next/link";
+import { Logo } from "../../../components/Logo";
 import { MenuIcon, XIcon } from "lucide-react";
-import {Logo} from "../../../components/Logo"
 
 const navigation = [
   { name: "Features", href: "/#features" },
   { name: "FAQ", href: "/#faq" },
-  { name: "Open Source", href: "/github", target: "_blank" as const },
-  { name: "Affiliates", href: "/affiliates", target: "_blank" as const },
-  { name: "Pricing", href: "/#pricing" },
+  { name: "Testimonial", href: "/#testimonial", target: "_blank" as const },
 ];
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
+    <header className="z-50 w-full">
       <nav
-        className="flex items-center justify-between p-6 lg:px-8"
+        className="flex items-center justify-between p-6 lg:px-8 w-full"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">Inbox Zero</span>
-            <Logo className="h-4 w-auto" />
+            <Logo className="h-6 w-auto" />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -39,14 +36,14 @@ export function Header() {
             <MenuIcon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <div className="hidden lg:flex lg:gap-x-12">
+        <div className="hidden lg:flex lg:gap-x-12 border rounded-xl px-4 py-3 bg-secondary-bg font-sans">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
               target={item.target}
               prefetch={item.target !== "_blank"}
-              className="text-sm font-semibold leading-6 text-gray-900"
+              className="text-sm font-semibold leading-6 text-grey hover:text-black hover:underline hover:scale-105 font-sans"
             >
               {item.name}
             </Link>
@@ -55,9 +52,10 @@ export function Header() {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link
             href="/welcome"
-            className="text-sm font-semibold leading-6 text-gray-900"
+            className="text-xl font-semibold leading-6 text-gray-900 underline underline-offset-8 font-sans"
           >
-            Log in <span aria-hidden="true">&rarr;</span>
+            Log in
+            {/* <span aria-hidden="true">&rarr;</span> */}
           </Link>
         </div>
       </nav>
@@ -72,7 +70,7 @@ export function Header() {
           <div className="flex items-center justify-between">
             <Link href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Inbox Zero</span>
-              <Logo className="h-4 w-auto" />
+              <Logo className="h-6 w-auto" />
             </Link>
             <button
               type="button"
@@ -100,7 +98,7 @@ export function Header() {
               <div className="py-6">
                 <Link
                   href="/welcome"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-xl font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   onClick={() => {
                     setMobileMenuOpen(false);
                   }}

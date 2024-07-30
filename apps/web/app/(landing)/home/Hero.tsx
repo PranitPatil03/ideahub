@@ -10,14 +10,18 @@ export function HeroText(props: {
 
   return (
     <h1
-      className={cn("font-cal text-4xl text-gray-900 sm:text-6xl", className)}
+      className={cn("font-sans text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-gray-900", className)}
       {...rest}
     />
   );
 }
 
 export function HeroSubtitle(props: { children: React.ReactNode }) {
-  return <p className="mt-6 text-lg leading-8 text-gray-600" {...props} />;
+  return (
+    <div className="font-sans mt-4 sm:mt-6 text-center">
+      <p className="font-sans text-sm md:text-xl  text-gray-600 max-w-2xl mx-auto">{props.children}</p>
+    </div>
+  );
 }
 
 export function Hero(props: {
@@ -26,62 +30,41 @@ export function Hero(props: {
   image?: string;
 }) {
   return (
-    <div className="relative pt-14">
+    <div className="relative pt-5 overflow-hidden">
       <SquaresPattern />
-      <div className="pt-24 sm:pb-12 sm:pt-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mb-10">
-            <ProductHuntBadge />
-          </div>
-
-          <div className="mx-auto max-w-xl text-center">
+      <div className="pt-16 sm:pt-24 lg:pt-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-xl lg:max-w-4xl text-center">
             <HeroText>
-              {props.title || "Stop wasting half your day in Gmail"}
+              {props.title || "Build professional resumes 10x faster"}
             </HeroText>
             <HeroSubtitle>
               {props.subtitle || (
                 <>
-                  Automate your email with AI, bulk unsubscribe from
-                  newsletters, and block cold emails. Open-source.
+                  AI-enhanced resume builder for career success.
+                  <br />
+                  Effortlessly transform your skills into job-winning resumes.
                 </>
               )}
             </HeroSubtitle>
           </div>
 
-          <div className="mt-16 flow-root sm:mt-24">
-            <div className="relative -m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
-              <Image
-                src={props.image || "/images/newsletters.png"}
-                alt="Inbox screenshot"
-                width={2432}
-                height={1442}
-                className="rounded-md shadow ring-1 ring-gray-900/10"
-              />
+          <div className="mt-12 sm:mt-16 lg:mt-20">
+            <div className="relative mx-auto max-w-7xl">
+              <div className="rounded-lg overflow-hidden shadow-xl">
+                <Image
+                  src={props.image || "/images/newsletters.png"}
+                  alt="Inbox screenshot"
+                  width={2432}
+                  height={1442}
+                  layout="responsive"
+                  className="w-full h-auto"
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-function ProductHuntBadge() {
-  return (
-    <div className="flex flex-col items-center justify-center gap-2 sm:flex-row">
-      <a
-        href="https://www.producthunt.com/posts/inbox-zero-2?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-inbox&#0045;zero&#0045;2"
-        target="_blank"
-        rel="noreferrer"
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=431438&theme=neutral&period=daily"
-          alt="Inbox&#0032;Zero - Clean&#0032;up&#0032;your&#0032;inbox&#0032;in&#0032;minutes&#0044;&#0032;open&#0032;source | Product Hunt"
-          className="h-[54px] w-[250px]"
-          width="250"
-          height="54"
-        />
-      </a>
     </div>
   );
 }

@@ -70,7 +70,6 @@ export default function RootLayout({
         className={`h-full ${inter.variable} ${calFont.variable} font-sans antialiased`}
       >
         <GlobalProviders>{children}</GlobalProviders>
-        {children}
       </body>
     </html>
   );
