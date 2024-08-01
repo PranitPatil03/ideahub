@@ -7,8 +7,8 @@ const featuredTestimonial = {
     name: "Jonni Lundy",
     handle: "jonnilundy",
     imageUrl:
-      "https://pbs.twimg.com/profile_images/1651273413053542400/6ul40RRM_400x400.jpg",
-    logoUrl: "/images/logos/resend.svg",
+      "https://pbs.twimg.com/profile_images/1506792347840888834/dS-r50Je_400x400.jpg",
+    logoUrl: "https://pbs.twimg.com/profile_images/1506792347840888834/dS-r50Je_400x400.jpg",
   },
 };
 const testimonials: {
@@ -36,7 +36,7 @@ const testimonials: {
           name: "James",
           handle: "",
           imageUrl:
-            "/images/testimonials/midas-hofstra-a6PMA5JEmWE-unsplash.jpg",
+            "https://pbs.twimg.com/profile_images/1506792347840888834/dS-r50Je_400x400.jpg",
         },
       },
       {
@@ -89,7 +89,7 @@ const testimonials: {
           name: "Yoni",
           handle: "",
           imageUrl:
-            "/images/testimonials/joseph-gonzalez-iFgRcqHznqg-unsplash.jpg",
+            "https://pbs.twimg.com/profile_images/1506792347840888834/dS-r50Je_400x400.jpg",
         },
       },
       {
@@ -107,14 +107,14 @@ const testimonials: {
 
 export function Testimonials() {
   return (
-    <div className="relative isolate bg-white pb-20 pt-24 sm:pt-32">
+    <div className="relative isolate bg-white pt-24 sm:pt-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-xl text-center">
-          <h2 className="text-lg font-semibold leading-8 tracking-tight text-blue-600">
-            Inbox Zero Love
+        <div className="mx-auto max-w-xl flex flex-col items-center">
+          <h2 className="text-lg font-semibold leading-8 tracking-tight border bg-secondary-bg rounded-2xl w-fit text-center px-3 py-1">
+            Testimonials
           </h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Clean inbox, happy life.
+          <p className="mt-2 text-xl md:text-3xl font-bold tracking-tight text-gray-900">
+            What our users are saying
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">

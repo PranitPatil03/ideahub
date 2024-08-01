@@ -1,20 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { Button } from "@repo/ui/components/ui/button";
 import { Panel } from "./Panel";
+import { Button } from "@repo/ui/components/ui/button";
 
-export function ErrorDisplay(props: {
+export function ErrorDisplay({
+  error,
+}: {
   error: { info?: { error: string }; error?: string };
 }) {
-  if (props.error?.info?.error || props.error?.error)
-    return (
-      <NotFound>
-        There was an error: {props.error?.info?.error || props.error?.error}
-      </NotFound>
-    );
+  const errorMessage = error?.info?.error || error?.error;
 
-  if (props.error) {
+  if (errorMessage) {
+    return <NotFound>There was an error: {errorMessage}</NotFound>;
+  }
+
+  if (error) {
     return (
       <NotFound>
         There was an error. Please refresh or contact support if the error
@@ -26,10 +27,10 @@ export function ErrorDisplay(props: {
   return null;
 }
 
-const NotFound = (props: { children: React.ReactNode }) => {
+const NotFound = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="text-gray-700">
-      <Panel>{props.children}</Panel>
+      <Panel>{children}</Panel>
     </div>
   );
 };

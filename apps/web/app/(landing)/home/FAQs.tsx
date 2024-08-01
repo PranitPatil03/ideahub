@@ -1,105 +1,116 @@
-const faqs = [
-  {
-    question: "Do you store my emails?",
-    answer:
-      "We store a hashed version of your emails for our analytics feature. As our code is open-source you can check our code to see this for yourself. For full data privacy you can self-host your own instance of Inbox Zero.",
-  },
-  {
-    question: "Is the code open-source?",
-    answer: (
-      <>
-        Yes! You can see the source code in our{" "}
-        <a
-          href="/github"
-          target="_blank"
-          className="font-semibold hover:underline"
-          rel="noreferrer"
-        >
-          GitHub repo
-        </a>
-        .
-      </>
-    ),
-  },
-  {
-    question: "Do you take feature requests?",
-    answer: (
-      <>
-        Yes! Post an issue on{" "}
-        <a
-          href="/github"
-          target="_blank"
-          className="font-semibold hover:underline"
-          rel="noreferrer"
-        >
-          GitHub
-        </a>{" "}
-        or{" "}
-        <a
-          href="mailto:elie@getinboxzero.com"
-          target="_blank"
-          className="font-semibold hover:underline"
-          rel="noreferrer"
-        >
-          email
-        </a>{" "}
-        us. We{"'"}re happy to hear how we can improve your email experience.
-      </>
-    ),
-  },
-  {
-    question: "Can I still use Inbox Zero alongside my current email client?",
-    answer:
-      "Yes! Inbox Zero is intended to be used alongside your existing email client.",
-  },
-  {
-    question: "Which email providers does Inbox Zero support?",
-    answer:
-      "We only support Gmail and Google Workspace email accounts today. We may add support for other email providers such as Outlook in the future.",
-  },
-  {
-    question: "Do you offer refunds?",
-    answer: (
-      <>
-        If you don{"'"}t think we provided you with value send us an{" "}
-        <a
-          href="mailto:elie@getinboxzero.com"
-          target="_blank"
-          className="font-semibold hover:underline"
-          rel="noreferrer"
-        >
-          email
-        </a>{" "}
-        within 14 days of upgrading and we{"'"}ll refund you.
-      </>
-    ),
-  },
-];
+/* eslint-disable no-redeclare */
+"use client";
 
-export function FAQs() {
-  return (
-    <div
-      className="mx-auto max-w-2xl divide-y divide-gray-900/10 px-6 pb-8 sm:pb-24 sm:pt-12 lg:max-w-7xl lg:px-8 lg:pb-32"
-      id="faq"
-    >
-      <h2 className="font-cal text-2xl leading-10 text-gray-900">
-        Frequently asked questions
-      </h2>
-      <dl className="mt-10 space-y-8 divide-y divide-gray-900/10">
-        {faqs.map((faq) => (
-          <div
-            key={faq.question}
-            className="pt-8 lg:grid lg:grid-cols-12 lg:gap-8"
-          >
-            <dt className="text-base font-semibold leading-7 text-gray-900 lg:col-span-5">
-              {faq.question}
-            </dt>
-            <dd className="mt-4 lg:col-span-7 lg:mt-0">
-              <p className="text-base leading-7 text-gray-600">{faq.answer}</p>
-            </dd>
-          </div>
-        ))}
-      </dl>
-    </div>
-  );
+import React, { useState } from "react";
+
+interface FAQItem {
+  question: string;
+  answer: string;
 }
+
+const FAQItem: React.FC<FAQItem & { isOpen: boolean; toggle: () => void }> = ({
+  question,
+  answer,
+  isOpen,
+  toggle,
+}) => (
+  <div
+    className="flex cursor-pointer mb-8 pb-8 group w-full items-start justify-between border-b text-left"
+    onClick={toggle}
+  >
+    <div className="max-w-xl pr-5">
+      <h3 className={`text-xl font-semibold text-black"}`}>{question}</h3>
+      {isOpen && <p className="text-lg text-gray-500 mt-3">{answer}</p>}
+    </div>
+    <div className="pt-1">
+      {isOpen ? (
+        <span className="relative top-3">
+          <svg
+            width="17"
+            height="3"
+            viewBox="0 0 17 3"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.4619 0.045166H1.46194C1.19673 0.045166 0.942374 0.150523 0.754838 0.338059C0.567302 0.525596 0.461945 0.77995 0.461945 1.04517C0.461945 1.31038 0.567302 1.56474 0.754838 1.75227C0.942374 1.93981 1.19673 2.04517 1.46194 2.04517H15.4619C15.7272 2.04517 15.9815 1.93981 16.1691 1.75227C16.3566 1.56474 16.4619 1.31038 16.4619 1.04517C16.4619 0.77995 16.3566 0.525596 16.1691 0.338059C15.9815 0.150523 15.7272 0.045166 15.4619 0.045166Z"
+              fill="black"
+            />
+          </svg>
+        </span>
+      ) : (
+        <span className="relative top-1">
+          <svg
+            width="17"
+            height="16"
+            viewBox="0 0 17 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.4619 7H9.46194V1C9.46194 0.734784 9.35659 0.48043 9.16905 0.292893C8.98151 0.105357 8.72716 0 8.46194 0C8.19673 0 7.94237 0.105357 7.75484 0.292893C7.5673 0.48043 7.46194 0.734784 7.46194 1V7H1.46194C1.19673 7 0.942374 7.10536 0.754838 7.29289C0.567302 7.48043 0.461945 7.73478 0.461945 8C0.461945 8.26522 0.567302 8.51957 0.754838 8.70711C0.942374 8.89464 1.19673 9 1.46194 9H7.46194V15C7.46194 15.2652 7.5673 15.5196 7.75484 15.7071C7.94237 15.8946 8.19673 16 8.46194 16C8.72716 16 8.98151 15.8946 9.16905 15.7071C9.35659 15.5196 9.46194 15.2652 9.46194 15V9H15.4619C15.7272 9 15.9815 8.89464 16.1691 8.70711C16.3566 8.51957 16.4619 8.26522 16.4619 8C16.4619 7.73478 16.3566 7.48043 16.1691 7.29289C15.9815 7.10536 15.7272 7 15.4619 7Z"
+              fill="black"
+            />
+          </svg>
+        </span>
+      )}
+    </div>
+  </div>
+);
+
+const FAQs: React.FC = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const faqItems: FAQItem[] = [
+    {
+      question: "Do you provide a complete design style?",
+      answer:
+        "Pretium ac auctor quis urna orci feugiat. Vulputate tellus velit tellus orci auctor vel nulla facilisi ut. Ante nunc risus viverra vivamus. Eros amet at lectus ac ac nibh dignissim.",
+    },
+    {
+      question: "How was the license?",
+      answer:
+        "Pretium ac auctor quis urna orci feugiat. Vulputate tellus velit tellus orci auctor vel nulla facilisi ut. Ante nunc risus viverra vivamus. Eros amet at lectus ac ac nibh dignissim.",
+    },
+    {
+      question: "How much we can buy this marvelous product?",
+      answer:
+        "Pretium ac auctor quis urna orci feugiat. Vulputate tellus velit tellus orci auctor vel nulla facilisi ut. Ante nunc risus viverra vivamus. Eros amet at lectus ac ac nibh dignissim.",
+    },
+    {
+      question: "Do you have any terms & conditions?",
+      answer:
+        "Pretium ac auctor quis urna orci feugiat. Vulputate tellus velit tellus orci auctor vel nulla facilisi ut. Ante nunc risus viverra vivamus. Eros amet at lectus ac ac nibh dignissim.",
+    },
+  ];
+
+  return (
+    <section className="relative py-20 overflow-hidden">
+      <div className="relative container px-4 mx-auto">
+        <div className="max-w-5xl mx-auto">
+          <div className="mx-auto max-w-xl flex flex-col items-center">
+            <h2 className="text-lg font-semibold leading-8 tracking-tight border rounded-2xl w-fit text-center px-3 py-1 bg-secondary-bg">
+              FAQ's
+            </h2>
+            <p className="mt-2 text-xl md:text-3xl font-bold tracking-tight text-gray-900">
+              You ask? We answer
+            </p>
+          </div>
+          <div className="pt-18 mt-16 px-8 sm:px-20 pb-18 bg-white rounded-4xl">
+            {faqItems.map((item, index) => (
+              <FAQItem
+                key={index}
+                question={item.question}
+                answer={item.answer}
+                isOpen={openIndex === index}
+                toggle={() => setOpenIndex(openIndex === index ? null : index)}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FAQs;

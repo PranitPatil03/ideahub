@@ -9,40 +9,45 @@ interface PanelProps {
   white?: boolean;
 }
 
-export const Panel = (props: PanelProps) => {
+export const Panel = ({ children, title, classes, full }: PanelProps) => {
   return (
     <div
       className={clsx(
         "rounded-lg bg-white text-gray-700 shadow",
-        !props.full && "px-8 py-7",
-        props.classes,
+        !full && "px-8 py-7",
+        classes,
       )}
     >
-      {props.title && (
+      {title && (
         <h3 className="mb-4 text-lg font-medium leading-6 text-gray-900">
-          {props.title}
+          {title}
         </h3>
       )}
-      {props.children}
+      {children}
     </div>
   );
 };
 
-export const GradientPanel = (props: PanelProps) => {
+export const GradientPanel = ({
+  children,
+  title,
+  classes,
+  full,
+}: PanelProps) => {
   return (
     <div>
       <div className="rounded-lg bg-gradient-to-l from-sky-500 via-indigo-400 to-cyan-400 p-0.5 shadow-md">
         <div
-          className={clsx("rounded-md bg-white text-gray-700", props.classes, {
-            "p-4 sm:p-6 md:px-8 md:py-7": !props.full,
+          className={clsx("rounded-md bg-white text-gray-700", classes, {
+            "p-4 sm:p-6 md:px-8 md:py-7": !full,
           })}
         >
-          {props.title && (
+          {title && (
             <h3 className="mb-4 text-lg font-medium leading-6 text-gray-900">
-              {props.title}
+              {title}
             </h3>
           )}
-          {props.children}
+          {children}
         </div>
       </div>
     </div>
