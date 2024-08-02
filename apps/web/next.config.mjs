@@ -2,7 +2,7 @@
 const nextConfig = {
   transpilePackages: ["@repo/ui"],
   images: {
-    domains: ['pbs.twimg.com', 'ph-avatars.imgix.net'],
+    domains: ['pbs.twimg.com', 'ph-avatars.imgix.net','randomuser.me'],
   },
 };
 

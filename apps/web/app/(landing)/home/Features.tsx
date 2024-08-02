@@ -35,7 +35,7 @@ const Feature: React.FC<FeatureProps> = ({
 
 const Features: React.FC = () => {
   return (
-    <div className="bg-white pt-24">
+    <div className="bg-white pt-16 md:pt-24" id="features">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center mt-10">
           <div className="mx-auto max-w-xl flex flex-col items-center">
@@ -112,7 +112,7 @@ const Features: React.FC = () => {
               <Feature
                 icon={<Sparkles className="w-6 h-6" />}
                 title=" Resource Access"
-                description="Giving users access to resources, mentorship, and tools needed to support and advance their projects." mainClassName="w-full"
+                description="Giving users access to resources, mentorship, and tools needed to support and advance their projects." mainClassName="w-full hidden lg:block"
               />
             </div>
           </div>

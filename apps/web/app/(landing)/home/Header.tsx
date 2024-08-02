@@ -12,6 +12,7 @@ import { Button } from "@repo/ui/components/ui/button";
 
 const navigation = [
   { name: "Features", href: "/#features" },
+  { name: "Why Ideahub", href: "/#why-ideahub" },
   { name: "Testimonial", href: "/#testimonial", target: "_blank" as const },
 ];
 
@@ -33,10 +34,10 @@ export function Header() {
 
   return (
     <header
-      className={`z-50 w-full max-w-7xl rounded-xl  ${isScrolled ? "fixed top-0 bg-white shadow-md" : ""}`}
+      className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""}`}
     >
       <nav
-        className="flex items-center justify-between p-6 lg:px-8 w-full"
+        className="flex items-center justify-between p-6 lg:px-8 w-full max-w-7xl mx-auto"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
@@ -72,17 +73,17 @@ export function Header() {
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center space-x-6">
           <Link
-            href="/welcome"
+            href="/login"
             className="text-xl font-semibold leading-6 text-gray-900 underline underline-offset-8 font-sans"
           >
             Log in
           </Link>
           <Button className="rounded-sm px-4 py-5" size="lg">
             <Link
-              href="/welcome"
-              className="text-xl font-semibold leading-6 text-white font-sans"
+              href="/idea"
+              className="text-base font-semibold leading-6 text-white font-sans"
             >
-              sign up
+              Submit a idea
             </Link>
           </Button>
         </div>

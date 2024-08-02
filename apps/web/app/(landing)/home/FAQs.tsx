@@ -19,7 +19,7 @@ const FAQItem: React.FC<FAQItem & { isOpen: boolean; toggle: () => void }> = ({
     onClick={toggle}
   >
     <div className="max-w-xl pr-5">
-      <h3 className={`text-xl font-semibold text-black"}`}>{question}</h3>
+      <h3 className={`text-lg font-semibold text-black"}`}>{question}</h3>
       {isOpen && <p className="text-lg text-gray-500 mt-3">{answer}</p>}
     </div>
     <div className="pt-1">
@@ -63,24 +63,24 @@ const FAQs: React.FC = () => {
 
   const faqItems: FAQItem[] = [
     {
-      question: "Do you provide a complete design style?",
+      question: "What is IdeaHub?Do you provide a complete design style?",
       answer:
-        "Pretium ac auctor quis urna orci feugiat. Vulputate tellus velit tellus orci auctor vel nulla facilisi ut. Ante nunc risus viverra vivamus. Eros amet at lectus ac ac nibh dignissim.",
+        "IdeaHub is a platform where you can share your tech ideas or problems and connect with others to collaborate and find solutions.",
     },
     {
-      question: "How was the license?",
+      question: "How do I submit an idea or problem?How was the license?",
       answer:
-        "Pretium ac auctor quis urna orci feugiat. Vulputate tellus velit tellus orci auctor vel nulla facilisi ut. Ante nunc risus viverra vivamus. Eros amet at lectus ac ac nibh dignissim.",
+        "Simply create an account, go to the submission section, and fill in the details of your idea or problem.",
     },
     {
-      question: "How much we can buy this marvelous product?",
+      question: "How can I find collaborators for my project?",
       answer:
-        "Pretium ac auctor quis urna orci feugiat. Vulputate tellus velit tellus orci auctor vel nulla facilisi ut. Ante nunc risus viverra vivamus. Eros amet at lectus ac ac nibh dignissim.",
+        "Browse user profiles or use the collaborator matching feature to find people with the skills and interests you need.",
     },
     {
-      question: "Do you have any terms & conditions?",
+      question: "Can I get feedback on my idea or problem?",
       answer:
-        "Pretium ac auctor quis urna orci feugiat. Vulputate tellus velit tellus orci auctor vel nulla facilisi ut. Ante nunc risus viverra vivamus. Eros amet at lectus ac ac nibh dignissim.",
+        "Yes, the community can vote and comment on your submissions, providing valuable feedback and validation.",
     },
   ];
 
