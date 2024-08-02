@@ -1,3 +1,3 @@
-import HomePage from "../../../app/(landing)/page";
+import Home from "../../../app/(landing)/page";
 
-export default HomePage;
+export default Home;

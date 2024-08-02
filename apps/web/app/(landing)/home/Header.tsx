@@ -73,7 +73,7 @@ export function Header() {
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center space-x-6">
           <Link
-            href="/login"
+            href="/auth/sign-in"
             className="text-xl font-semibold leading-6 text-gray-900 underline underline-offset-8 font-sans"
           >
             Log in
@@ -130,7 +130,7 @@ export function Header() {
               </div>
               <div className="flex gap-10 py-6">
                 <Link
-                  href="/welcome"
+                  href="/auth/sign-in"
                   className="border -mx-3 block rounded-sm px-3 py-2.5 text-xl font-semibold leading-7 text-gray-900 hover:bg-gray-50 bg-secondary-bg w-[100px]"
                   onClick={() => {
                     setMobileMenuOpen(false);

@@ -9,6 +9,7 @@
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
+    "@clerk/nextjs": "^5.2.11",
     "@headlessui/react": "^2.1.2",
     "@repo/ui": "workspace:*",
     "@sentry/nextjs": "^8.20.0",

@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import { env } from "../env";
 import { GlobalProviders } from "../providers/GlobalProviders";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -65,12 +66,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }): JSX.Element {
   return (
-    <html lang="en">
-      <body
-        className={`h-full ${inter.variable} ${calFont.variable} font-sans antialiased`}
-      >
-        <GlobalProviders>{children}</GlobalProviders>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={`h-full ${inter.variable} ${calFont.variable} font-sans antialiased`}
+        >
+          <GlobalProviders>{children}</GlobalProviders>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
