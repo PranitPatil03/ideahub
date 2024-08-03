@@ -27,6 +27,20 @@ const description =
 export const metadata: Metadata = {
   title: title,
   description: description,
+   icons: {
+    icon: [
+      {
+        url: "/images/favicon.ico",
+        href: "/images/favicon.ico",
+        media: "(prefers-color-scheme: dark)",
+      },
+      {
+        url: "/images/icon.ico",
+        href: "/images/icon.ico",
+        media: "(prefers-color-scheme: light)",
+      },
+    ],
+  },
   openGraph: {
     title,
     description,
