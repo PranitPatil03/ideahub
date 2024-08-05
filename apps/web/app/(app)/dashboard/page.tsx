@@ -2,6 +2,7 @@
 
 import { useUser, SignOutButton } from '@clerk/nextjs';
 import { Button } from '@repo/ui/components/ui/button';
+import { redirect } from 'next/navigation';
 
 export default function Page() {
   const { isLoaded, isSignedIn } = useUser();
@@ -11,7 +12,7 @@ export default function Page() {
   }
 
   if (!isSignedIn) {
-    return <div>You need to be signed in to view this page.</div>;
+    redirect("/auth/sign-in");
   }
 
   return (
